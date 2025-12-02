@@ -2,7 +2,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
 
-class signupForm(UserCreationForm):
+class SignUpForm(UserCreationForm):
     emails = forms.EmailField(label="", widget=forms.EmailInput(attrs={'class':'form-control', 'placeholder':'Email Address'}))
     firstname = forms.CharField(label="", max_length=150, widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'First Name'}))
     lastname = forms.CharField(label="", max_length=150, widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Last Name'}))
@@ -12,7 +12,7 @@ class signupForm(UserCreationForm):
         fields = ('firstname', 'lastname', 'username', 'emails', 'password1', 'password2')
 
     def __init__(self, *args, **kwargs):
-        super(signupForm, self).__init__(*args, **kwargs)
+        super(SignUpForm, self).__init__(*args, **kwargs)
 
         self.fields['username'].widget.attrs['class'] = 'form-control'
         self.fields['username'].widget.attrs['placeholder'] = 'Username'
